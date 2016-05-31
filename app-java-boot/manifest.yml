@@ -1,0 +1,7 @@
+---
+applications:
+  - name: app-java-boot
+    memory: 256M
+    instances: 1
+    buildpack: https://github.com/cloudfoundry/java-buildpack
+    path: build/libs/app-java-spring-0.1.0.jar
