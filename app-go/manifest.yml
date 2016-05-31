@@ -1,0 +1,7 @@
+---
+
+applications:
+  - name: app-go
+    memory: 8M
+    instances: 1
+    buildpack: go_buildpack
