@@ -1,10 +1,10 @@
 package main
 
 import (
+	"fmt"
+	"log"
 	"net/http"
 	"os"
-	"log"
-	"fmt"
 )
 
 func main() {
@@ -13,7 +13,7 @@ func main() {
 	port := getPort()
 
 	fmt.Println("Listening on port [" + port + "]")
-	err := http.ListenAndServe(":" + port, nil)
+	err := http.ListenAndServe(":"+port, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
