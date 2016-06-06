@@ -10,7 +10,7 @@ import (
 )
 
 var _ = Describe("Util", func() {
-	Describe("GetPort", func() {
+	Describe("port", func() {
 		It("returns default value", func() {
 			port := util.GetPort()
 
@@ -22,6 +22,36 @@ var _ = Describe("Util", func() {
 			port := util.GetPort()
 
 			Expect(port).To(Equal("8765"))
+		})
+	})
+
+	Describe("user", func() {
+		It("returns default value", func() {
+			port := util.GetUser()
+
+			Expect(port).To(Equal("user"))
+		})
+
+		It("pulls from environment", func() {
+			os.Setenv("SECURITY_USER_NAME", "admin")
+			port := util.GetUser()
+
+			Expect(port).To(Equal("admin"))
+		})
+	})
+
+	Describe("user", func() {
+		It("returns default value", func() {
+			port := util.GetPassword()
+
+			Expect(port).To(Equal("pass"))
+		})
+
+		It("pulls from environment", func() {
+			os.Setenv("SECURITY_USER_PASSWORD", "secure")
+			port := util.GetPassword()
+
+			Expect(port).To(Equal("secure"))
 		})
 	})
 })

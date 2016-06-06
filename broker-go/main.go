@@ -14,16 +14,17 @@ import (
 
 func main() {
 	logger := lager.NewLogger("my-service-broker")
+	store := kv.NewMemoryStore()
 
-	serviceBroker := &example.SampleServiceBroker{}
+	serviceBroker := example.NewSampleServiceBroker(store)
 	credentials := brokerapi.BrokerCredentials{
-		Username: "username",
-		Password: "password",
+		Username: util.GetUser(),
+		Password: util.GetPassword(),
 	}
 	brokerAPI := brokerapi.New(serviceBroker, logger, credentials)
 	http.Handle("/v2/", brokerAPI)
 
-	store := kv.NewMemoryStore()
+
 	api := kv.NewApi(logger, store)
 	http.Handle("/kv/", api)
 

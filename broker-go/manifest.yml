@@ -1,4 +1,5 @@
 ---
+# For pushing & testing independently, not used by tile generator
 
 applications:
   - name: broker-go
