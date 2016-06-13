@@ -14,6 +14,11 @@ echo $$ > $PIDFILE
 
 cd /var/vcap/packages/broker-go
 
+export SECURITY_USER_NAME="<%= p('kv.broker.auth.username') %>"
+export SECURITY_USER_PASSWORD="<%= p('kv.broker.auth.password') %>"
+
+env >> $LOG_DIR/broker.stdout.log
+
 exec /var/vcap/packages/broker-go/main \
   >>  $LOG_DIR/broker.stdout.log \
   2>> $LOG_DIR/broker.stderr.log

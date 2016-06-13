@@ -7,4 +7,10 @@ templates:
 packages:
   - broker-go
 
-# properties:
+properties:
+  kv.broker.auth.username:
+    default: user
+    description: The username for broker's basic auth
+  kv.broker.auth.password:
+    default: pass
+    description: The password for broker's basic auth

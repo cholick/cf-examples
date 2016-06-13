@@ -159,9 +159,11 @@ networks:
     - 10.244.3.81
     static: []
 properties:
-  broker:
-    password: user
-    username: pass
+  kv:
+    broker:
+      auth:
+        username: admin
+        password: abc123
 releases:
 - name: broker-go
   version: latest
