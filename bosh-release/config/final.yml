@@ -4,4 +4,4 @@ blobstore:
   provider: local
   options:
     blobstore_path: /tmp/local_blobstore
-final_name: broker-go
+final_name: kv-example
