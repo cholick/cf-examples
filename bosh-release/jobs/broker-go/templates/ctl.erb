@@ -1,0 +1,32 @@
+#!/bin/bash
+
+RUN_DIR=/var/vcap/sys/run/broker-go
+LOG_DIR=/var/vcap/sys/log/broker-go
+PIDFILE=${RUN_DIR}/pid
+
+case $1 in
+
+start)
+mkdir -p $RUN_DIR $LOG_DIR
+chown -R vcap:vcap $RUN_DIR $LOG_DIR
+
+echo $$ > $PIDFILE
+
+cd /var/vcap/packages/broker-go
+
+exec /var/vcap/packages/broker-go/main \
+  >>  $LOG_DIR/broker.stdout.log \
+  2>> $LOG_DIR/broker.stderr.log
+
+;;
+
+stop)
+kill -9 `cat $PIDFILE`
+rm -f $PIDFILE
+
+;;
+
+*)
+echo "Usage: ctl {start|stop}" ;;
+
+esac

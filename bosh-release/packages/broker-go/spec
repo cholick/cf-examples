@@ -1,0 +1,8 @@
+---
+name: broker-go
+
+dependencies:
+- golang1.6
+
+files:
+- broker-go/**/*

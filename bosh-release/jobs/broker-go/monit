@@ -1,0 +1,5 @@
+check process broker-go
+  with pidfile /var/vcap/sys/run/broker-go/pid
+  start program "/var/vcap/jobs/broker-go/bin/ctl start"
+  stop program "/var/vcap/jobs/broker-go/bin/ctl stop"
+  group vcap

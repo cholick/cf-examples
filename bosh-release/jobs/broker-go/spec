@@ -1,0 +1,10 @@
+---
+
+name: broker-go
+templates:
+  ctl.erb: bin/ctl
+
+packages:
+  - broker-go
+
+# properties:
