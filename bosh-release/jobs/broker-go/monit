@@ -1,0 +1,5 @@
+check process kv-example-broker
+  with pidfile /var/vcap/sys/run/kv-example-broker/pid
+  start program "/var/vcap/jobs/kv-example-broker/bin/ctl start"
+  stop program "/var/vcap/jobs/kv-example-broker/bin/ctl stop"
+  group vcap

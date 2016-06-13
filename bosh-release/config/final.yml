@@ -1,0 +1,7 @@
+---
+
+blobstore:
+  provider: local
+  options:
+    blobstore_path: /tmp/local_blobstore
+final_name: kv-example

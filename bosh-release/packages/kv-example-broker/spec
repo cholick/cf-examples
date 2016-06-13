@@ -1,0 +1,8 @@
+---
+name: kv-example-broker
+
+dependencies:
+- golang1.6
+
+files:
+- kv-example-broker/**/*

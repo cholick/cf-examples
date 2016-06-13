@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -ex
+
+mkdir -p ${BOSH_INSTALL_TARGET}/src/github.com/cholick/cf-examples/broker-go
+cp -a kv-example-broker/* ${BOSH_INSTALL_TARGET}/src/github.com/cholick/cf-examples/broker-go
+
+export GOPATH=$BOSH_INSTALL_TARGET
+export GOROOT=$(readlink -nf /var/vcap/packages/golang1.6)
+export PATH=$GOROOT/bin:$PATH
+
+go build ${BOSH_INSTALL_TARGET}/src/github.com/cholick/cf-examples/broker-go/main.go
+
+cp main ${BOSH_INSTALL_TARGET}/
+
+echo "Clean up source artifacts"
+rm -rf ${BOSH_INSTALL_TARGET}/src ${BOSH_INSTALL_TARGET}/pkg
