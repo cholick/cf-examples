@@ -1,0 +1,9 @@
+---
+applications:
+  - name: app-load
+    memory: 32M
+    instances: 2
+    buildpack: go_buildpack
+    env:
+      GOPACKAGENAME: main
+      DELAY: 500ms
