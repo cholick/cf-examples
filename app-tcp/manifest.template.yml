@@ -1,0 +1,11 @@
+---
+applications:
+  - name: app-tcp
+    memory: 32M
+    instances: 1
+    buildpack: go_buildpack
+    random-route: true
+    routes:
+      - route: <tcp.cf.example.com>:3333
+    env:
+      GOPACKAGENAME: main
