@@ -1,8 +1,0 @@
----
-# For pushing & testing independently, not used by tile generator
-
-applications:
-  - name: broker-go
-    memory: 16M
-    instances: 1
-    buildpack: go_buildpack
