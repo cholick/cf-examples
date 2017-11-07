@@ -2,6 +2,8 @@
 
 applications:
   - name: app-go
-    memory: 8M
+    memory: 16M
     instances: 1
     buildpack: go_buildpack
+    env:
+      GOPACKAGENAME: main
