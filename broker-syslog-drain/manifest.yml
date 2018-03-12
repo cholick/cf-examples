@@ -1,0 +1,8 @@
+---
+applications:
+- name: drain-broker
+  buildpack: python_buildpack
+  env:
+    DRAIN_URL: syslog://logs.papertrailapp.com:12345
+    SECURITY_USER_NAME: admin
+    SECURITY_USER_PASSWORD: abc123
