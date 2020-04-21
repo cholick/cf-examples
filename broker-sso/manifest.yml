@@ -1,0 +1,8 @@
+---
+applications:
+  - name: broker-sso
+    memory: 256m
+    instances: 1
+    buildpack: python_buildpack
+    env:
+      SSO_SHARED_SECRET: change-me
